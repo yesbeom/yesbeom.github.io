@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Interactive research tools for band-gap and nanoparticle morphology calculations, built by Seongbeom Yeon."
+    />
+    <title>Research Tools | Seongbeom Yeon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Go to home">
+        <span class="brand-mark">SY</span>
+        <span>Personal Website</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html#research">Research</a>
+        <a href="research-follow.html">Research Follow</a>
+        <a href="research-visualizations.html" aria-current="page">Research Tools</a>
+        <a href="index.html#projects">Projects</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-band">
+        <div>
+          <p class="eyebrow">Research Tools</p>
+          <h1>Interactive Nanomaterial Calculators</h1>
+          <p class="hero-text">
+            반도체 나노소재의 물리적 특성을 계산식 기반으로 직접 조작해볼 수 있는 인터랙티브 도구 모음입니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="tab-list" id="calculator-tabs" role="tablist" aria-label="Research visualization calculators">
+          <button class="tab-button is-active" type="button" role="tab" data-tab="quantum" aria-selected="true" aria-controls="quantum-panel">
+            Band-gap
+          </button>
+          <button class="tab-button" type="button" role="tab" data-tab="surface-volume" aria-selected="false" aria-controls="surface-volume-panel">
+            Surface / Volume Ratio
+          </button>
+          <button class="tab-button" type="button" role="tab" data-tab="electron-cloud" aria-selected="false" aria-controls="electron-cloud-panel">
+            Electron Cloud
+          </button>
+        </div>
+
+        <div class="tab-panel" id="quantum-panel" data-tab-panel="quantum" role="tabpanel">
+          <div class="section-heading">
+            <p class="eyebrow">Brus Equation</p>
+            <h2>Band-gap Calculator</h2>
+            <p>
+              양자점의 크기(반지름)에 따라 밴드갭과 발광 파장이 어떻게 변하는지 유효질량근사(EMA) 기반의
+              Brus equation으로 계산합니다.
+            </p>
+          </div>
+
+          <div class="calculator-layout">
+            <div class="calculator-controls">
+              <label class="param-field">
+                <span>Material</span>
+                <select id="material-select"></select>
+              </label>
+              <label class="param-field">
+                <span>Radius R (<output id="radius-value"></output>)</span>
+                <input type="range" id="radius-slider" />
+              </label>
+
+              <div class="empty-state" id="quantum-range-warning" hidden>
+                <p>
+                  현재 반지름은 이 물질의 유효질량근사(EMA) 근사가 물리적으로 유효한 범위를 벗어났습니다.
+                  결과는 참고용으로만 확인하세요.
+                </p>
+              </div>
+
+              <p class="calculator-reference" id="material-reference-note"></p>
+            </div>
+
+            <div class="calculator-result">
+              <div class="emission-swatch" id="emission-swatch" aria-label="Estimated emission color"></div>
+              <dl class="calculator-output" id="quantum-output"></dl>
+              <div class="calculator-chart" id="bandgap-curve-chart" aria-label="Bandgap versus radius curve"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="surface-volume-panel" data-tab-panel="surface-volume" role="tabpanel" hidden>
+          <div class="section-heading">
+            <p class="eyebrow">Nanoparticle Geometry</p>
+            <h2>Surface-to-Volume Ratio Calculator</h2>
+            <p>
+              나노입자의 형태(구형, 정사면체, 테트라포드)에 따라 표면적, 부피, 표면 대 부피 비율이 어떻게
+              달라지는지 계산합니다.
+            </p>
+          </div>
+
+          <div class="calculator-layout">
+            <div class="calculator-controls">
+              <label class="param-field">
+                <span>Morphology</span>
+                <select id="morphology-select"></select>
+              </label>
+
+              <div class="morphology-diagram" id="morphology-diagram" aria-hidden="true"></div>
+
+              <div class="morphology-params" id="morphology-params"></div>
+            </div>
+
+            <div class="calculator-result">
+              <dl class="calculator-output" id="surface-volume-output"></dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="electron-cloud-panel" data-tab-panel="electron-cloud" role="tabpanel" hidden>
+          <div class="section-heading">
+            <p class="eyebrow">Gasteiger Partial Charge</p>
+            <h2>Electron Cloud Viewer</h2>
+            <p>
+              SMILES 코드를 입력하면 분자 구조 위에 Gasteiger partial charge를 색으로 입혀
+              전자가 어느 부분에 쏠려 있는지 정성적으로 보여줍니다.
+            </p>
+          </div>
+
+          <div class="calculator-layout">
+            <div class="calculator-controls">
+              <label class="param-field">
+                <span>Preset molecule</span>
+                <select id="molecule-preset-select"></select>
+              </label>
+              <label class="param-field">
+                <span>SMILES</span>
+                <input type="text" id="smiles-input" spellcheck="false" autocomplete="off" placeholder="예: CC(=O)O" />
+              </label>
+              <button class="button" type="button" id="render-molecule-button">Render</button>
+
+              <p class="calculator-reference">
+                Gasteiger partial charge는 전기음성도 기반의 경험적 추정치로, 실제 electron
+                density(전자 확률 분포)가 아닙니다. 정성적 경향 파악용으로만 활용하세요.
+                지원 원소: H, C, N, O, F, Cl, Br, I, S, P.
+              </p>
+            </div>
+
+            <div class="calculator-result">
+              <div id="electron-cloud-status" aria-live="polite"></div>
+              <div class="electron-cloud-canvas-wrap" id="electron-cloud-canvas-wrap">
+                <canvas id="electron-cloud-canvas"></canvas>
+                <div class="electron-cloud-tooltip" id="electron-cloud-tooltip" hidden></div>
+              </div>
+              <div class="electron-cloud-legend" id="electron-cloud-legend"></div>
+              <dl class="calculator-output" id="electron-cloud-output"></dl>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> Seongbeom Yeon</span>
+      <a href="index.html">Home</a>
+    </footer>
+
+    <script type="module" src="js/pages/research-visualizations-page.js"></script>
+  </body>
+</html>

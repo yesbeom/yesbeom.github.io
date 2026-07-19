@@ -12,12 +12,12 @@ const COLOR_NAME_BANDS = [
   { maxNm: VISIBLE_MAX_NM, name: "red" },
 ];
 
-export const bandgapEvToWavelengthNm = (bandgapEv) => HC_EV_NM / bandgapEv;
+const bandgapEvToWavelengthNm = (bandgapEv) => HC_EV_NM / bandgapEv;
 
-export const isVisibleWavelength = (wavelengthNm) =>
+const isVisibleWavelength = (wavelengthNm) =>
   wavelengthNm >= VISIBLE_MIN_NM && wavelengthNm <= VISIBLE_MAX_NM;
 
-export const wavelengthToColorName = (wavelengthNm) => {
+const wavelengthToColorName = (wavelengthNm) => {
   if (wavelengthNm < VISIBLE_MIN_NM) return "UV";
   if (wavelengthNm > VISIBLE_MAX_NM) return "IR";
   return COLOR_NAME_BANDS.find((band) => wavelengthNm <= band.maxNm)?.name ?? "red";
@@ -26,7 +26,7 @@ export const wavelengthToColorName = (wavelengthNm) => {
 const gammaCorrect = (component, intensity) =>
   Math.round(255 * (component * intensity) ** 0.8);
 
-export const wavelengthToRgb = (wavelengthNm) => {
+const wavelengthToRgb = (wavelengthNm) => {
   let r = 0;
   let g = 0;
   let b = 0;
