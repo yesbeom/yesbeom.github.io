@@ -22,6 +22,3 @@ export const GASTEIGER_PARAMETERS = {
 
 // 수소가 전자를 공여할 때 분모로 쓰는 고정 양이온 전기음성도 (원 논문 및 RDKit의 IONXH).
 export const HYDROGEN_CATION_ELECTRONEGATIVITY = 20.02;
-
-export const GASTEIGER_REFERENCE_NOTE =
-  "Partial charges: Gasteiger & Marsili, Tetrahedron 36, 3219 (1980) — PEOE iterative method";

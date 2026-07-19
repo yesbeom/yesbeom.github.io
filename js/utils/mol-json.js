@@ -18,7 +18,7 @@ const ATOMIC_SYMBOLS = {
 const DEFAULT_ATOM = { z: 6, impHs: 0, chg: 0 };
 const DEFAULT_BOND = { bo: 1 };
 
-export const parseMolblockCoords = (molblock) => {
+const parseMolblockCoords = (molblock) => {
   const lines = molblock.split(/\r?\n/);
   const countsLine = lines[3] ?? "";
   const atomCount = Number.parseInt(countsLine.slice(0, 3), 10);

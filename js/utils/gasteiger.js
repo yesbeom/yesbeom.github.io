@@ -6,7 +6,7 @@ import {
 // 접미사 없이 단일 파라미터를 쓰는 원소들.
 const SUFFIX_FREE_ELEMENTS = new Set(["H", "F", "Cl", "Br", "I"]);
 
-export const inferHybridization = (atomIndex, atoms, bonds) => {
+const inferHybridization = (atomIndex, atoms, bonds) => {
   const incident = bonds.filter((bond) => bond.a === atomIndex || bond.b === atomIndex);
   const tripleCount = incident.filter((bond) => bond.order === 3).length;
   const doubleCount = incident.filter((bond) => bond.order === 2).length;
@@ -20,7 +20,7 @@ export const inferHybridization = (atomIndex, atoms, bonds) => {
   return "sp3";
 };
 
-export const atomTypeKey = (element, hybridization) => {
+const atomTypeKey = (element, hybridization) => {
   if (SUFFIX_FREE_ELEMENTS.has(element)) {
     return element;
   }

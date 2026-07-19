@@ -10,14 +10,13 @@ import { fetchJournalWorks } from "../utils/crossref.js";
 
 const researchFollowList = document.querySelector("#research-follow-list");
 const researchFollowStatus = document.querySelector("#research-follow-status");
-const journalFilter = document.querySelector("#journal-filter");
 
 let allFollowItems = [];
 
-const getMatchedKeywords = (title) => {
+const hasWatchedKeyword = (title) => {
   const normalizedTitle = title.toLowerCase();
 
-  return watchedKeywords.filter((keyword) => normalizedTitle.includes(keyword));
+  return watchedKeywords.some((keyword) => normalizedTitle.includes(keyword));
 };
 
 const isWithinWatchWindow = (date) => {
@@ -35,19 +34,6 @@ const isWithinWatchWindow = (date) => {
 
 const getVisibleItems = () =>
   allFollowItems.slice(0, maxVisiblePapers);
-
-const renderJournalFilter = () => {
-  if (!journalFilter) {
-    return;
-  }
-
-  journalFilter.innerHTML = `
-    <button class="filter-chip is-active" type="button">
-      All
-      <span>${allFollowItems.length}</span>
-    </button>
-  `;
-};
 
 const renderFollowLoading = () => {
   if (!researchFollowList) {
@@ -128,8 +114,8 @@ export const loadResearchFollowItems = async () => {
   try {
     renderFollowLoading();
 
+    // 순차 호출 필수: Crossref 익명 API는 병렬 버스트에 429를 반환한다.
     const journalResults = [];
-
     for (const journal of watchedJournals) {
       try {
         journalResults.push({
@@ -137,10 +123,7 @@ export const loadResearchFollowItems = async () => {
           value: await fetchJournalWorks(journal, watchWindowDays),
         });
       } catch (error) {
-        journalResults.push({
-          status: "rejected",
-          reason: error,
-        });
+        journalResults.push({ status: "rejected", reason: error });
       }
     }
 
@@ -151,31 +134,23 @@ export const loadResearchFollowItems = async () => {
     const loadedJournalCount = watchedJournals.length - failedCount;
 
     const mappedItems = successfulResults
-      .map(({ journal, work }) => {
-        const title = work.title?.[0] || "";
-        const publishedAt = getPublicationDate(work);
-        const matchedKeywords = getMatchedKeywords(title);
-
-        return {
-          title,
-          journal: journal.name,
-          publishedAt,
-          matchedKeywords,
-          doi: work.DOI,
-          url: work.URL || (work.DOI ? `https://doi.org/${work.DOI}` : "#"),
-        };
-      })
+      .map(({ journal, work }) => ({
+        title: work.title?.[0] || "",
+        journal: journal.name,
+        publishedAt: getPublicationDate(work),
+        doi: work.DOI,
+        url: work.URL || (work.DOI ? `https://doi.org/${work.DOI}` : "#"),
+      }))
       .filter(
         (item) =>
           item.title &&
-          item.matchedKeywords.length > 0 &&
+          hasWatchedKeyword(item.title) &&
           isWithinWatchWindow(item.publishedAt),
       );
 
     allFollowItems = mappedItems
       .sort((first, second) => second.publishedAt - first.publishedAt);
 
-    renderJournalFilter();
     renderFollowItems();
     updateFollowStatus(successfulResults.length, loadedJournalCount, failedCount);
   } catch (error) {

@@ -58,6 +58,7 @@ research-visualizations.html ─ js/pages/research-visualizations-page.js
 - **`js/pages/`** — 페이지당 1개. init 함수 호출만 하고 로직을 갖지 않는다.
 - **`js/features/`** — DOM을 읽고 그리는 화면 로직. 계산은 직접 하지 않고 utils에 위임한다.
 - **`js/utils/`** — DOM을 모르는 순수 함수(물리 공식, 포맷터, API 클라이언트). 단독 테스트 가능.
+  (예외: `rdkit-loader.js`는 CDN 스크립트 태그 주입을 위해 `document`에 접근한다.)
 - **`js/data/`** — 물질 상수, 논문 목록, 워치리스트 등 정적 데이터. 코드 로직 없음.
 
 이 분리 덕분에 "InP 유전율 값만 바꿔줘" 같은 수정은 `js/data/materials.js` 한 파일,
