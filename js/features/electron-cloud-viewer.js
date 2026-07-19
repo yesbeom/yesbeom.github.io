@@ -1,10 +1,11 @@
-import { moleculePresets } from "../data/molecule-presets.js";
+import { moleculePresets, DEFAULT_MOLECULE_PRESET_ID } from "../data/molecule-presets.js";
 import { loadRDKit } from "../utils/rdkit-loader.js";
 import { parseMolGraph } from "../utils/mol-json.js";
 import { computeGasteigerCharges } from "../utils/gasteiger.js";
 import { chargeToRgba, rgbaToCss, legendGradientCss } from "../utils/charge-color.js";
 
 const presetSelect = document.querySelector("#molecule-preset-select");
+const presetIupacNote = document.querySelector("#molecule-preset-iupac");
 const smilesInput = document.querySelector("#smiles-input");
 const renderButton = document.querySelector("#render-molecule-button");
 const statusArea = document.querySelector("#electron-cloud-status");
@@ -400,6 +401,18 @@ export const activateElectronCloudViewer = () => {
   loadLibraryAndRender();
 };
 
+const updatePresetIupacNote = (preset) => {
+  if (!presetIupacNote) {
+    return;
+  }
+  if (preset?.iupac) {
+    presetIupacNote.textContent = `${preset.label} = ${preset.iupac}`;
+    presetIupacNote.hidden = false;
+  } else {
+    presetIupacNote.hidden = true;
+  }
+};
+
 export const initElectronCloudViewer = () => {
   if (!presetSelect || !smilesInput || !renderButton || !canvas) {
     return;
@@ -408,13 +421,26 @@ export const initElectronCloudViewer = () => {
   presetSelect.innerHTML = moleculePresets
     .map((preset) => `<option value="${preset.id}">${preset.label}</option>`)
     .join("");
-  smilesInput.value = moleculePresets[0].smiles;
+  const defaultPreset =
+    moleculePresets.find((preset) => preset.id === DEFAULT_MOLECULE_PRESET_ID) ??
+    moleculePresets[0];
+  presetSelect.value = defaultPreset.id;
+  smilesInput.value = defaultPreset.smiles;
+  updatePresetIupacNote(defaultPreset);
 
   presetSelect.addEventListener("change", () => {
     const preset = moleculePresets.find((candidate) => candidate.id === presetSelect.value);
     if (preset) {
       smilesInput.value = preset.smiles;
+      updatePresetIupacNote(preset);
       renderMolecule(preset.smiles);
+    }
+  });
+
+  smilesInput.addEventListener("input", () => {
+    const preset = moleculePresets.find((candidate) => candidate.id === presetSelect.value);
+    if (!preset || smilesInput.value.trim() !== preset.smiles) {
+      updatePresetIupacNote(null);
     }
   });
 
