@@ -1,4 +1,4 @@
-export const getDateFromParts = (dateParts) => {
+const getDateFromParts = (dateParts) => {
   const firstDate = dateParts?.[0];
 
   if (!firstDate) {

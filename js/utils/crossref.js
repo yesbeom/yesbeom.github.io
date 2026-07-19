@@ -1,5 +1,4 @@
-const getCrossrefUrl = (journal, watchWindowDays) => {
-  const issn = typeof journal === "string" ? journal : journal.issn;
+const getCrossrefUrl = (issn, watchWindowDays) => {
   const today = new Date();
   const fromDate = new Date(today);
   fromDate.setDate(today.getDate() - watchWindowDays);

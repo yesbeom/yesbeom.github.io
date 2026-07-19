@@ -34,28 +34,6 @@ const applyCitationMetrics = (metrics) => {
   }
 };
 
-const fallbackCitationMetrics = {
-  table: {
-    "citations-all": "169",
-    "citations-recent": "168",
-    "h-all": "8",
-    "h-recent": "8",
-    "i10-all": "7",
-    "i10-recent": "7",
-  },
-  yearly: [
-    { year: "2020", count: 1 },
-    { year: "2021", count: 16 },
-    { year: "2022", count: 17 },
-    { year: "2023", count: 31 },
-    { year: "2024", count: 33 },
-    { year: "2025", count: 38 },
-    { year: "2026", count: 35 },
-  ],
-  updatedAt: "2026-07-02",
-  note: "Citation metrics are manually updated from Google Scholar.",
-};
-
 export const loadScholarMetrics = async () => {
   if (!citationNote) {
     return;
@@ -71,6 +49,6 @@ export const loadScholarMetrics = async () => {
     const metrics = await response.json();
     applyCitationMetrics(metrics);
   } catch (error) {
-    applyCitationMetrics(fallbackCitationMetrics);
+    // citations.json을 불러오지 못하면 HTML에 하드코딩된 마지막 스냅샷 값을 그대로 노출한다.
   }
 };
