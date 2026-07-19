@@ -2,7 +2,6 @@
 export const moleculePresets = [
   { id: "acetic-acid", label: "Acetic acid", smiles: "CC(=O)O" },
   { id: "acetone", label: "Acetone", smiles: "CC(C)=O" },
-  { id: "aniline", label: "Aniline", smiles: "Nc1ccccc1" },
   { id: "aspirin", label: "Aspirin", smiles: "CC(=O)Oc1ccccc1C(=O)O" },
   { id: "benzene", label: "Benzene", smiles: "c1ccccc1" },
   { id: "benzoyl-fluoride", label: "Benzoyl fluoride", smiles: "O=C(F)c1ccccc1" },
@@ -15,7 +14,7 @@ export const moleculePresets = [
   { id: "caffeine", label: "Caffeine", smiles: "Cn1cnc2c1c(=O)n(C)c(=O)n2C" },
   {
     id: "diazirine",
-    label: "Diazirine (Ph/CF₃)",
+    label: "Diazirine",
     smiles: "FC(F)(F)C1(c2ccccc2)N=N1",
     iupac: "3-Phenyl-3-(trifluoromethyl)-3H-diazirine",
   },
@@ -52,12 +51,11 @@ export const moleculePresets = [
   },
   { id: "phenol", label: "Phenol", smiles: "Oc1ccccc1" },
   {
-    id: "sulfobetaine-c18",
-    label: "Sulfobetaine (C18)",
-    smiles: "CCCCCCCCCCCCCCCCCC[N+](C)(C)CCCS(=O)(=O)[O-]",
-    iupac: "3-(N,N-Dimethyloctadecylammonio)propane-1-sulfonate",
+    id: "sulfobetaine-head",
+    label: "Sulfobetaine (head)",
+    smiles: "C[N+](C)(C)CCCS(=O)(=O)[O-]",
+    iupac: "3-(Trimethylammonio)propane-1-sulfonate",
   },
-  { id: "water", label: "Water", smiles: "O" },
 ];
 
 export const DEFAULT_MOLECULE_PRESET_ID = "bna";
