@@ -5,7 +5,7 @@ import {
   initElectronCloudViewer,
   activateElectronCloudViewer,
 } from "../features/electron-cloud-viewer.js";
-import { setFooterYear } from "../utils/footer-year.js";
+import { setFooterYear } from "../features/footer-year.js";
 
 initElectronCloudViewer();
 initTabLayout({

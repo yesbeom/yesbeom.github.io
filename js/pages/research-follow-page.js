@@ -1,5 +1,5 @@
 import { loadResearchFollowItems } from "../features/research-follow.js";
-import { setFooterYear } from "../utils/footer-year.js";
+import { setFooterYear } from "../features/footer-year.js";
 
 loadResearchFollowItems();
 setFooterYear();

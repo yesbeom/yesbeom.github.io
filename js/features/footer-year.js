@@ -1,5 +1,6 @@
 export const setFooterYear = () => {
-  document.querySelectorAll("#year").forEach((year) => {
+  const year = document.getElementById("year");
+  if (year) {
     year.textContent = new Date().getFullYear();
-  });
+  }
 };
