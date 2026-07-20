@@ -11,6 +11,8 @@
 | Home | `index.html` | 소개, 논문 목록, 인용 지표(Google Scholar), 각 섹션 프리뷰 |
 | Research Follow | `research-follow.html` | 최근 3일 내 주요 저널 신규 논문을 Crossref API로 자동 수집 |
 | Research Tools | `research-visualizations.html` | 인터랙티브 계산기 (Band-gap, S/V Ratio, Electron Cloud) |
+| Research Themes | `theme-*.html` | 연구 테마별 상세 페이지 3종 (Nanomaterials Synthesis, Surface Chemistry, Direct Photolithography) — 내용 채우기 예정 |
+| Lounge | `lounge.html` | 상단 네비 오른쪽 끝 탭으로 진입(메인 페이지 본문에는 미노출). 하위 탭 2개: Quote Cards(연구자 명언 카드뽑기 — 3장 중 1장만 공개), AI Project(데모 영상 2종 — AI Chat Program `media/ai-chat-demo.mp4`, Second Brain Project `media/second-brain-demo.mp4`) |
 
 ## 아키텍처
 
@@ -22,7 +24,19 @@
 index.html ─────────────── js/pages/home.js
                              ├─ features/publications.js ─── data/publications.js
                              ├─ features/citations.js ────── citations.json (fetch)
-                             └─ utils/footer-year.js
+                             └─ features/footer-year.js
+
+theme-*.html (3종) ─────── js/pages/theme-page.js  (공용 진입점)
+                             └─ features/footer-year.js
+
+lounge.html ────────────── js/pages/lounge-page.js
+                             ├─ features/tab-layout.js
+                             ├─ features/quote-cards.js
+                             │    ├─ data/researcher-quotes.js  (연구자 명언 목록)
+                             │    └─ utils/random.js            (셔플·랜덤 추출)
+                             ├─ features/video-showcase.js      (영상 내장 재생바·재생 컨트롤)
+                             │    └─ utils/format.js            (시간 포맷터)
+                             └─ features/footer-year.js
 
 research-follow.html ───── js/pages/research-follow-page.js
                              ├─ features/research-follow.js
@@ -30,7 +44,7 @@ research-follow.html ───── js/pages/research-follow-page.js
                              │    ├─ utils/crossref.js          (Crossref API 호출)
                              │    ├─ utils/dates.js
                              │    └─ utils/format.js
-                             └─ utils/footer-year.js
+                             └─ features/footer-year.js
 
 research-visualizations.html ─ js/pages/research-visualizations-page.js
                              ├─ features/tab-layout.js
@@ -50,7 +64,7 @@ research-visualizations.html ─ js/pages/research-visualizations-page.js
                              │    ├─ utils/gasteiger.js         (Gasteiger charge 계산)
                              │    │    └─ data/gasteiger-parameters.js
                              │    └─ utils/charge-color.js      (전하→색 변환)
-                             └─ utils/footer-year.js
+                             └─ features/footer-year.js
 ```
 
 ### 레이어 규칙
@@ -71,15 +85,19 @@ research-visualizations.html ─ js/pages/research-visualizations-page.js
 ├── index.html                     # Home
 ├── research-follow.html           # Research Follow
 ├── research-visualizations.html   # Research Tools (계산기)
+├── theme-*.html                   # 연구 테마 상세 페이지 3종
+├── lounge.html                    # Lounge (명언 카드뽑기 · AI Project 영상)
 ├── citations.json                 # 인용 지표 데이터 (Actions가 주기 갱신)
 ├── css/
 │   └── styles.css                 # 전체 사이트 단일 스타일시트
+├── media/                         # 데모 영상 (ai-chat-demo.mp4, second-brain-demo.mp4)
 ├── js/
 │   ├── pages/                     # 페이지 진입점 (조립만)
 │   ├── features/                  # 화면 렌더링·이벤트 로직
 │   ├── utils/                     # 순수 계산·유틸 함수 (DOM 비의존)
 │   └── data/                      # 정적 데이터 (상수·목록)
 ├── scripts/
+│   ├── serve.py                   # 로컬 개발 서버 (영상 시킹용 Range 지원)
 │   └── update-citations.mjs       # Scholar 인용 지표 수집 스크립트 (Node)
 ├── .github/workflows/
 │   └── update-citations.yml       # 주 1회 인용 지표 자동 갱신
@@ -94,11 +112,15 @@ research-visualizations.html ─ js/pages/research-visualizations-page.js
 ES Module을 쓰므로 `file://`이 아닌 로컬 서버로 열어야 합니다.
 
 ```sh
-python -m http.server 8000
+python scripts/serve.py
 # 또는: npx serve .
 ```
 
 브라우저에서 `http://localhost:8000` 접속.
+
+> `python -m http.server`는 쓰지 마세요 — HTTP Range 요청을 지원하지 않아
+> 영상 재생바 시킹이 동작하지 않습니다. `scripts/serve.py`는 Range를 지원합니다.
+> (GitHub Pages·VS Code Live Server는 Range를 지원하므로 문제 없습니다.)
 
 ### 배포 (GitHub Pages)
 
@@ -120,6 +142,7 @@ python -m http.server 8000
 | 워치리스트 저널/키워드 변경 | `js/data/watchlist-config.js` |
 | 나노입자 형태 추가 | `js/data/morphologies.js` + `js/utils/geometry-formulas.js` + `js/utils/morphology-diagrams.js` |
 | Electron Cloud 분자 프리셋 추가 | `js/data/molecule-presets.js` |
+| Lounge 명언 카드 추가/수정 | `js/data/researcher-quotes.js` |
 | 스타일 변경 | `css/styles.css` (CSS 변수는 최상단 `:root`) |
 
 ### 개발 사이클
