@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
@@ -24,9 +24,30 @@
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#research">Research</a>
+        <div class="nav-item">
+          <a href="#projects">Projects</a>
+          <div class="nav-dropdown">
+            <a href="theme-nanomaterials-synthesis.html">Nanomaterials Synthesis</a>
+            <a href="theme-surface-chemistry.html">Surface Chemistry</a>
+            <a href="theme-direct-photolithography.html">Direct Photolithography</a>
+          </div>
+        </div>
         <a href="research-follow.html">Research Follow</a>
-        <a href="research-visualizations.html">Research Tools</a>
-        <a href="#projects">Projects</a>
+        <div class="nav-item">
+          <a href="research-visualizations.html">Research Tools</a>
+          <div class="nav-dropdown">
+            <a href="research-visualizations.html#quantum">Band-gap Calculator</a>
+            <a href="research-visualizations.html#surface-volume">S/V Ratio Calculator</a>
+            <a href="research-visualizations.html#electron-cloud">Electron Cloud</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="lounge.html">Lounge</a>
+          <div class="nav-dropdown">
+            <a href="lounge.html#quote-cards">Quote Cards</a>
+            <a href="lounge.html#ai-project">AI Project</a>
+          </div>
+        </div>
       </nav>
     </header>
 
@@ -44,8 +65,7 @@
               <dt>Focus</dt>
               <dd>
                 <span>Chemistry</span>
-                <span>Materials Science</span>
-                <span>Materials Engineering</span>
+                <span>Materials Science &amp; Engineering</span>
               </dd>
             </div>
             <div>
@@ -155,6 +175,41 @@
         </div>
       </section>
 
+      <section class="section" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">Projects</p>
+          <h2>My Research Themes</h2>
+          <p>
+            연구 주제별로 나눈 세 가지 테마입니다. 각 카드를 클릭하면 해당 주제의 상세 페이지로
+            이동합니다.
+          </p>
+        </div>
+
+        <div class="theme-grid">
+          <a class="theme-card-link" href="theme-nanomaterials-synthesis.html">
+            <article>
+              <p class="box-label">Theme A</p>
+              <h3>Nanomaterials Synthesis</h3>
+              <p>반도체 나노소재의 합성과 성장 제어에 대한 연구를 정리합니다.</p>
+            </article>
+          </a>
+          <a class="theme-card-link" href="theme-surface-chemistry.html">
+            <article>
+              <p class="box-label">Theme B</p>
+              <h3>Surface Chemistry</h3>
+              <p>나노소재 표면 리간드와 계면 화학에 대한 연구를 정리합니다.</p>
+            </article>
+          </a>
+          <a class="theme-card-link" href="theme-direct-photolithography.html">
+            <article>
+              <p class="box-label">Theme C</p>
+              <h3>Direct Photolithography</h3>
+              <p>나노소재의 직접 광패터닝에 대한 연구를 정리합니다.</p>
+            </article>
+          </a>
+        </div>
+      </section>
+
       <section class="section muted" id="research-follow-preview">
         <div class="section-heading">
           <p class="eyebrow">Research Follow</p>
@@ -177,6 +232,10 @@
         <div class="section-heading">
           <p class="eyebrow">Research Tools</p>
           <h2>Interactive nanomaterial calculators</h2>
+          <p>
+            나노소재 연구에 자주 쓰이는 물리·화학 계산을 브라우저에서 바로 실행해 볼 수 있는
+            인터랙티브 도구 모음입니다. 모든 계산기는 AI(Claude)를 활용해 구현했습니다.
+          </p>
         </div>
 
         <div class="theme-grid">
@@ -196,40 +255,11 @@
           </a>
           <a class="theme-card-link" href="research-visualizations.html#electron-cloud">
             <article>
-              <p class="box-label">Try it out</p>
+              <p class="box-label">Try it out <span class="status-flag">Under improvement</span></p>
               <h3>Electron Cloud</h3>
               <p>SMILES 입력으로 분자 구조 위에 Gasteiger partial charge 분포를 시각화합니다.</p>
             </article>
           </a>
-        </div>
-      </section>
-
-      <section class="section" id="projects">
-        <div class="section-heading">
-          <p class="eyebrow">Projects</p>
-          <h2>Research themes to expand</h2>
-          <p>
-            프로젝트는 연구 분야별로 나누어 확장할 수 있도록 비워 둔 구조입니다. 이후 구체적인 연구 주제,
-            실험 시스템, 논문 또는 데이터가 생기면 바로 연결할 수 있습니다.
-          </p>
-        </div>
-
-        <div class="theme-grid">
-          <article>
-            <p class="box-label">Theme A</p>
-            <h3>Semiconducting nanomaterials</h3>
-            <p>합성, 표면 제어, 물성 분석과 관련된 프로젝트를 배치합니다.</p>
-          </article>
-          <article>
-            <p class="box-label">Theme B</p>
-            <h3>Organic and inorganic interfaces</h3>
-            <p>분자 설계와 무기 소재 계면을 연결하는 연구를 정리합니다.</p>
-          </article>
-          <article>
-            <p class="box-label">Theme C</p>
-            <h3>Materials chemistry workflow</h3>
-            <p>데이터 처리, 분석 절차, 연구 기록과 관련된 작업을 포함할 수 있습니다.</p>
-          </article>
         </div>
       </section>
     </main>

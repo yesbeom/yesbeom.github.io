@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="A hidden lounge — a small resting space inside the research portfolio." />
+    <title>Lounge | Seongbeom Yeon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Go to home">
+        <span class="brand-mark">SY</span>
+        <span>Personal Website</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html#research">Research</a>
+        <div class="nav-item">
+          <a href="index.html#projects">Projects</a>
+          <div class="nav-dropdown">
+            <a href="theme-nanomaterials-synthesis.html">Nanomaterials Synthesis</a>
+            <a href="theme-surface-chemistry.html">Surface Chemistry</a>
+            <a href="theme-direct-photolithography.html">Direct Photolithography</a>
+          </div>
+        </div>
+        <a href="research-follow.html">Research Follow</a>
+        <div class="nav-item">
+          <a href="research-visualizations.html">Research Tools</a>
+          <div class="nav-dropdown">
+            <a href="research-visualizations.html#quantum">Band-gap Calculator</a>
+            <a href="research-visualizations.html#surface-volume">S/V Ratio Calculator</a>
+            <a href="research-visualizations.html#electron-cloud">Electron Cloud</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="lounge.html" aria-current="page">Lounge</a>
+          <div class="nav-dropdown">
+            <a href="lounge.html#quote-cards">Quote Cards</a>
+            <a href="lounge.html#ai-project">AI Project</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-band">
+        <div>
+          <p class="eyebrow">Lounge</p>
+          <h1>Welcome to the Lounge</h1>
+          <p class="hero-text">
+            연구 사이에 잠시 쉬어가는 공간입니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="tab-list" id="lounge-tabs" role="tablist" aria-label="Lounge menus">
+          <button
+            class="tab-button is-active"
+            type="button"
+            role="tab"
+            data-tab="quote-cards"
+            aria-selected="true"
+            aria-controls="quote-cards-panel"
+          >
+            Quote Cards
+          </button>
+          <button
+            class="tab-button"
+            type="button"
+            role="tab"
+            data-tab="ai-project"
+            aria-selected="false"
+            aria-controls="ai-project-panel"
+          >
+            AI Project
+          </button>
+        </div>
+
+        <div class="tab-panel" id="quote-cards-panel" data-tab-panel="quote-cards" role="tabpanel">
+          <div class="section-heading">
+            <p class="eyebrow">Draw a Card</p>
+            <h2>Words from Great Researchers</h2>
+            <p>
+              세 장의 카드 중 한 장만 뒤집을 수 있습니다. 마음이 가는 카드를 골라 위대한 연구자가
+              남긴 오늘의 한마디를 확인하세요.
+            </p>
+          </div>
+
+          <div class="quote-deck" id="quote-deck" aria-live="polite"></div>
+
+          <div class="quote-deck-toolbar">
+            <button class="button primary" type="button" id="quote-redraw-button">다시 뽑기</button>
+            <p class="calculator-reference">카드 위에 마우스를 올리면 명언의 출처를 볼 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="ai-project-panel" data-tab-panel="ai-project" role="tabpanel" hidden>
+          <article class="project-showcase">
+            <div class="section-heading">
+              <p class="eyebrow">AI Project 01</p>
+              <h2>AI Chat Program</h2>
+              <p>직접 만든 AI chat 프로그램의 시연 영상입니다. 재생 버튼을 눌러 확인해 보세요.</p>
+            </div>
+
+            <figure class="video-frame">
+              <div class="video-player" data-video-player>
+                <video preload="metadata" poster="media/ai-chat-demo-poster.jpg" src="media/ai-chat-demo.mp4">
+                  브라우저가 video 태그를 지원하지 않습니다.
+                </video>
+                <div class="video-controls">
+                  <button class="video-control-button" type="button" data-play-toggle aria-label="재생/일시정지">▶</button>
+                  <span class="video-time" data-seek-current>0:00</span>
+                  <div class="video-seek-track" data-seek-track aria-label="재생 위치 이동">
+                    <div class="video-seek-fill" data-seek-fill></div>
+                  </div>
+                  <span class="video-time" data-seek-duration>0:00</span>
+                  <button class="video-control-button" type="button" data-fullscreen aria-label="전체 화면">⛶</button>
+                </div>
+              </div>
+              <figcaption>AI chat 프로그램 데모 녹화 영상 · 하단 재생바를 드래그하면 원하는 시간으로 이동합니다</figcaption>
+            </figure>
+
+            <p class="calculator-reference">
+              영상 파일을 <code>media/ai-chat-demo.mp4</code> 경로에 넣으면 이 자리에서 재생됩니다.
+            </p>
+          </article>
+
+          <article class="project-showcase">
+            <div class="section-heading">
+              <p class="eyebrow">AI Project 02</p>
+              <h2>Second Brain Project</h2>
+              <p>개인 지식을 축적하고 연결하는 Second Brain 프로젝트의 시연 영상입니다.</p>
+            </div>
+
+            <figure class="video-frame">
+              <div class="video-player" data-video-player>
+                <video preload="metadata" src="media/second-brain-demo.mp4">
+                  브라우저가 video 태그를 지원하지 않습니다.
+                </video>
+                <div class="video-controls">
+                  <button class="video-control-button" type="button" data-play-toggle aria-label="재생/일시정지">▶</button>
+                  <span class="video-time" data-seek-current>0:00</span>
+                  <div class="video-seek-track" data-seek-track aria-label="재생 위치 이동">
+                    <div class="video-seek-fill" data-seek-fill></div>
+                  </div>
+                  <span class="video-time" data-seek-duration>0:00</span>
+                  <button class="video-control-button" type="button" data-fullscreen aria-label="전체 화면">⛶</button>
+                </div>
+              </div>
+              <figcaption>Second Brain 프로젝트 데모 녹화 영상 · 하단 재생바를 드래그하면 원하는 시간으로 이동합니다</figcaption>
+            </figure>
+
+            <p class="calculator-reference">
+              영상 파일을 <code>media/second-brain-demo.mp4</code> 경로에 넣으면 이 자리에서 재생됩니다.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> Seongbeom Yeon</span>
+      <a href="index.html">Home</a>
+    </footer>
+
+    <script type="module" src="js/pages/lounge-page.js"></script>
+  </body>
+</html>

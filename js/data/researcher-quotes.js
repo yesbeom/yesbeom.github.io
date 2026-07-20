@@ -1,0 +1,96 @@
+// 카드뽑기(Lounge > Quote Cards)에 쓰이는 연구자 명언 목록.
+// text는 영어 원문(또는 통용 영역), translation은 한글 번역, source는 출처 메모.
+export const RESEARCHER_QUOTES = [
+  {
+    author: "Isaac Newton",
+    detail: "Physicist · Mathematician, 1643–1727",
+    text: "If I have seen further it is by standing on the shoulders of giants.",
+    translation: "내가 더 멀리 보았다면, 그것은 거인들의 어깨 위에 서 있었기 때문이다.",
+    source: "1675년 Robert Hooke에게 보낸 편지",
+  },
+  {
+    author: "Marie Curie",
+    detail: "Physicist · Chemist, 1867–1934",
+    text: "Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less.",
+    translation:
+      "인생에서 두려워할 것은 없다. 이해해야 할 것이 있을 뿐이다. 지금은 더 많이 이해해서 덜 두려워해야 할 때다.",
+    source: "전기적 기록으로 널리 전해지는 문장",
+  },
+  {
+    author: "Albert Einstein",
+    detail: "Physicist, 1879–1955",
+    text: "Imagination is more important than knowledge.",
+    translation: "상상력은 지식보다 중요하다.",
+    source: "1929년 The Saturday Evening Post 인터뷰",
+  },
+  {
+    author: "Louis Pasteur",
+    detail: "Chemist · Microbiologist, 1822–1895",
+    text: "In the fields of observation chance favors only the prepared mind.",
+    translation: "관찰의 영역에서 우연은 준비된 자에게만 미소 짓는다.",
+    source: "1854년 Lille 대학 강연",
+  },
+  {
+    author: "Michael Faraday",
+    detail: "Physicist · Chemist, 1791–1867",
+    text: "Nothing is too wonderful to be true, if it be consistent with the laws of nature.",
+    translation: "자연의 법칙에 어긋나지 않는다면, 그 어떤 것도 사실이 되기에 너무 경이롭지 않다.",
+    source: "1849년 실험 일지",
+  },
+  {
+    author: "Richard Feynman",
+    detail: "Physicist, 1918–1988",
+    text: "What I cannot create, I do not understand.",
+    translation: "내가 만들어낼 수 없는 것은, 내가 이해하지 못한 것이다.",
+    source: "1988년 Caltech 칠판에 남긴 메모",
+  },
+  {
+    author: "Richard Feynman",
+    detail: "Physicist, 1918–1988",
+    text: "The first principle is that you must not fool yourself — and you are the easiest person to fool.",
+    translation: "제1원칙은 스스로를 속이지 않는 것이다. 그리고 가장 속이기 쉬운 사람이 바로 자기 자신이다.",
+    source: "1974년 Caltech 졸업 연설",
+  },
+  {
+    author: "Thomas Edison",
+    detail: "Inventor, 1847–1931",
+    text: "Genius is one per cent inspiration, ninety-nine per cent perspiration.",
+    translation: "천재는 1%의 영감과 99%의 땀으로 이루어진다.",
+    source: "1900년대 초 인터뷰",
+  },
+  {
+    author: "Albert Szent-Györgyi",
+    detail: "Biochemist, 1893–1986",
+    text: "Discovery consists of seeing what everybody has seen and thinking what nobody has thought.",
+    translation: "발견이란 모두가 본 것을 보면서, 아무도 생각하지 못한 것을 생각하는 일이다.",
+    source: "The Scientist Speculates (1962) 수록",
+  },
+  {
+    author: "Rosalind Franklin",
+    detail: "Chemist · Crystallographer, 1920–1958",
+    text: "Science and everyday life cannot and should not be separated.",
+    translation: "과학과 일상은 분리될 수 없고, 분리되어서도 안 된다.",
+    source: "1940년 아버지에게 보낸 편지",
+  },
+  {
+    author: "Niels Bohr",
+    detail: "Physicist, 1885–1962",
+    text: "An expert is a person who has made all the mistakes which can be made in a very narrow field.",
+    translation: "전문가란 아주 좁은 분야에서 저지를 수 있는 모든 실수를 이미 저질러 본 사람이다.",
+    source: "Edward Teller의 회고로 전해지는 문장",
+  },
+  {
+    author: "Santiago Ramón y Cajal",
+    detail: "Neuroscientist, 1852–1934",
+    text: "Every man can, if he so desires, become the sculptor of his own brain.",
+    translation: "누구든 원하기만 한다면, 자기 자신의 뇌를 빚는 조각가가 될 수 있다.",
+    source: "Advice for a Young Investigator (1897)",
+  },
+  {
+    author: "Charles Darwin",
+    detail: "Naturalist · Biologist, 1809–1882",
+    text: "A man who dares to waste one hour of time has not discovered the value of life.",
+    translation: "한 시간을 함부로 허비하는 사람은 아직 삶의 가치를 발견하지 못한 것이다.",
+    source: "1836년 누이에게 보낸 편지",
+  },
+];

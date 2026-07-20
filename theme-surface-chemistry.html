@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Research theme page on surface chemistry of nanomaterials by Seongbeom Yeon."
+    />
+    <title>Surface Chemistry | Seongbeom Yeon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Go to home">
+        <span class="brand-mark">SY</span>
+        <span>Personal Website</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html#research">Research</a>
+        <div class="nav-item">
+          <a href="index.html#projects">Projects</a>
+          <div class="nav-dropdown">
+            <a href="theme-nanomaterials-synthesis.html">Nanomaterials Synthesis</a>
+            <a href="theme-surface-chemistry.html" aria-current="page">Surface Chemistry</a>
+            <a href="theme-direct-photolithography.html">Direct Photolithography</a>
+          </div>
+        </div>
+        <a href="research-follow.html">Research Follow</a>
+        <div class="nav-item">
+          <a href="research-visualizations.html">Research Tools</a>
+          <div class="nav-dropdown">
+            <a href="research-visualizations.html#quantum">Band-gap Calculator</a>
+            <a href="research-visualizations.html#surface-volume">S/V Ratio Calculator</a>
+            <a href="research-visualizations.html#electron-cloud">Electron Cloud</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="lounge.html">Lounge</a>
+          <div class="nav-dropdown">
+            <a href="lounge.html#quote-cards">Quote Cards</a>
+            <a href="lounge.html#ai-project">AI Project</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero section-band">
+        <div>
+          <p class="eyebrow">Research Theme</p>
+          <h1>Surface Chemistry</h1>
+          <p class="hero-text">
+            콜로이드성 반도체 나노소재의 표면 리간드 화학을 통해 광물리적 특성과 응용 가능성을 조절하는
+            연구입니다.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Overview</p>
+          <h2>Ligands as the Key Variable</h2>
+          <p>
+            콜로이드성 반도체 나노재료(colloidal semiconducting nanomaterials)에서 표면 리간드 화학
+            (surface ligand chemistry)은 나노재료의 합성, 표면 안정화, 표면 전자 구조 조절 및 최종 소자
+            성능을 결정짓는 핵심 요소입니다. 나노재료는 본질적으로 부피 대비 표면적 비율이 매우 높기
+            때문에, 표면 원자와 리간드 간의 화학적 배위 상태(ligand coordination)에 따라 구조적·광물리적
+            거동이 완전히 좌우됩니다.
+          </p>
+          <p>
+            기본적으로 리간드는 합성 단계에서 전구체의 용해도와 반응 동역학을 미세하게 조절하여
+            나노재료의 크기와 형태를 결정합니다. 이와 동시에 나노재료 표면의 미결합 결함(dangling
+            bonds)을 제거하는 표면 패시베이션(surface passivation)을 통해 결함 트랩에 의한 비복사
+            재결합(nonradiative recombination)을 강력하게 억제함으로써 궁극적으로 광발광 효율을
+            극대화하는 역할을 합니다.
+          </p>
+          <p>
+            특히 최신 연구에서는 Friedel-Crafts 아실화(Acylation) 반응을 활용하여 온화한 조건에서
+            유도된 HF로 나노재료 표면의 결함을 정밀하게 제거하는 전략을 선보였습니다. 이를 통해
+            초미세 나노구조체인 매직 사이즈 클러스터(magic-sized cluster) 표면을 완벽히 패시베이션함
+            으로써, 역대 최고 수준의 광발광 효율을 달성하는 획기적인 성과를 거두었습니다.
+          </p>
+          <p>
+            나아가 리간드 자체에 특정 화학적 반응성을 부여한 기능성 리간드의 도입은 나노재료의 응용
+            가능성을 혁신적으로 넓히는 강력한 플랫폼으로 부상하고 있습니다. 또 다른 최신 연구에서는
+            광활성 모이어티(photoactive moieties)를 가진 광민감성 리간드를 나노재료 표면에 성공적으로
+            도입하였습니다. 이는 빛 조사를 통해 국부적인 화학 반응을 유도함으로써, 별도의
+            감광제(photoresist)를 사용하는 복잡한 공정 없이도 정밀한 직접 광리소그래피(direct
+            photolithography)를 가능하게 만들었습니다.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> Seongbeom Yeon</span>
+      <a href="index.html#projects">Back to Projects</a>
+    </footer>
+
+    <script type="module" src="js/pages/theme-page.js"></script>
+  </body>
+</html>
