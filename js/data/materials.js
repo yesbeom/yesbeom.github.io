@@ -7,6 +7,7 @@ export const materials = [
     mhStar: 0.6,
     epsilonR: 12.5,
     validRadiusNm: [1, 10],
+    defaultRadiusNm: 3,
     referenceNote:
       "Band-edge effective masses and static dielectric constant from Vurgaftman, Meyer & Ram-Mohan, \"Band parameters for III-V compound semiconductors and their alloys,\" J. Appl. Phys. 89, 5815 (2001); bulk bandgap is the commonly cited 300 K value used across InP quantum-dot literature.",
   },

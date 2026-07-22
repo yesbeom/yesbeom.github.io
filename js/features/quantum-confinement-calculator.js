@@ -123,7 +123,7 @@ const syncRadiusSliderToMaterial = () => {
   radiusSlider.min = String(minNm);
   radiusSlider.max = String(maxNm);
   radiusSlider.step = "0.1";
-  radiusSlider.value = String((minNm + maxNm) / 2);
+  radiusSlider.value = String(material.defaultRadiusNm ?? (minNm + maxNm) / 2);
 };
 
 export const initQuantumConfinementCalculator = () => {
