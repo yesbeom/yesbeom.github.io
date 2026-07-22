@@ -87,7 +87,7 @@ research-visualizations.html ─ js/pages/research-visualizations-page.js
 ├── research-visualizations.html   # Research Tools (계산기)
 ├── theme-*.html                   # 연구 테마 상세 페이지 3종
 ├── lounge.html                    # Lounge (명언 카드뽑기 · AI Project 영상)
-├── citations.json                 # 인용 지표 데이터 (Actions가 주기 갱신)
+├── citations.json                 # 인용 지표 데이터 (수동 갱신)
 ├── css/
 │   └── styles.css                 # 전체 사이트 단일 스타일시트
 ├── media/                         # 데모 영상 (ai-chat-demo.mp4, second-brain-demo.mp4)
@@ -97,10 +97,7 @@ research-visualizations.html ─ js/pages/research-visualizations-page.js
 │   ├── utils/                     # 순수 계산·유틸 함수 (DOM 비의존)
 │   └── data/                      # 정적 데이터 (상수·목록)
 ├── scripts/
-│   ├── serve.py                   # 로컬 개발 서버 (영상 시킹용 Range 지원)
-│   └── update-citations.mjs       # Scholar 인용 지표 수집 스크립트 (Node)
-├── .github/workflows/
-│   └── update-citations.yml       # 주 1회 인용 지표 자동 갱신
+│   └── serve.py                   # 로컬 개발 서버 (영상 시킹용 Range 지원)
 └── docs/
     └── brainstorming.md           # 초기 기획·브레인스토밍 기록
 ```
@@ -126,11 +123,9 @@ python scripts/serve.py
 
 별도 빌드 없이 저장소 루트를 그대로 서빙합니다. `main` 브랜치에 push하면 반영됩니다.
 
-### 인용 지표 자동 업데이트
+### 인용 지표 업데이트
 
-- `.github/workflows/update-citations.yml`이 **매주 일요일 20:00 UTC**에 실행 (수동 실행도 가능).
-- `scripts/update-citations.mjs`가 Google Scholar(또는 `SERPAPI_KEY` 시크릿이 있으면 SerpApi)에서
-  지표를 가져와 `citations.json`을 갱신하고 자동 커밋합니다.
+- 인용 지표는 `citations.json`을 **직접 수정**해 갱신합니다 (Google Scholar에서 값을 확인 후 입력).
 - 홈 화면은 `citations.json`을 fetch해 표시하며, 실패 시 HTML에 하드코딩된 마지막 스냅샷을 그대로 보여줍니다.
 
 ### 자주 하는 콘텐츠 수정
