@@ -670,11 +670,33 @@ h3 {
 
 .publication-card {
   padding: 12px 14px;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 
 .publication-card:hover {
   border-color: rgba(79, 70, 229, 0.45);
+}
+
+.publication-card-link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.publication-card-link .publication-card {
+  height: 100%;
+}
+
+.publication-card-link:hover .publication-card,
+.publication-card-link:focus-visible .publication-card {
+  border-color: rgba(79, 70, 229, 0.55);
+  box-shadow: var(--glow);
+  transform: translateY(-2px);
+}
+
+.publication-card-link:focus-visible {
+  outline: none;
 }
 
 .publication-card-featured {
