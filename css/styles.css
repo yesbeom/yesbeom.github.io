@@ -16,6 +16,9 @@
   --radius: 12px;
   --font-display: "Space Grotesk", "Noto Sans KR", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", "Noto Sans KR", monospace;
+  /* keeps full-bleed bands but centers content in a max-width column on wide screens */
+  --content-max: 1280px;
+  --pad-x: max(6vw, calc((100% - var(--content-max)) / 2));
 }
 
 * {
@@ -32,6 +35,9 @@ body {
   color: var(--ink);
   font-family: "Inter", "Noto Sans KR", system-ui, sans-serif;
   line-height: 1.6;
+  /* keep Korean eojeol / English words intact — break only at spaces */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -49,7 +55,7 @@ a {
   align-items: center;
   justify-content: space-between;
   min-height: 72px;
-  padding: 0 6vw;
+  padding: 0 var(--pad-x);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(11, 18, 38, 0.88);
   color: #e8ecf8;
@@ -156,7 +162,7 @@ a {
 
 .section-band,
 .section {
-  padding: 88px 6vw;
+  padding: 88px var(--pad-x);
 }
 
 /* ---------- Hero: glowing quantum dots on deep navy ---------- */
@@ -849,7 +855,7 @@ h3 {
   position: relative;
   justify-content: space-between;
   min-height: 86px;
-  padding: 0 6vw;
+  padding: 0 var(--pad-x);
   border-top: 0;
   background: var(--deep);
   color: #9aa5c4;
