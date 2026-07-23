@@ -90,14 +90,15 @@ research-visualizations.html ─ js/pages/research-visualizations-page.js
 ├── citations.json                 # 인용 지표 데이터 (수동 갱신)
 ├── css/
 │   └── styles.css                 # 전체 사이트 단일 스타일시트
-├── media/                         # 데모 영상 (ai-chat-demo.mp4, second-brain-demo.mp4)
+├── media/                         # 데모 영상·프로필 사진·CV PDF·OG 커버 이미지
 ├── js/
 │   ├── pages/                     # 페이지 진입점 (조립만)
 │   ├── features/                  # 화면 렌더링·이벤트 로직
 │   ├── utils/                     # 순수 계산·유틸 함수 (DOM 비의존)
 │   └── data/                      # 정적 데이터 (상수·목록)
 ├── scripts/
-│   └── serve.py                   # 로컬 개발 서버 (영상 시킹용 Range 지원)
+│   ├── serve.py                   # 로컬 개발 서버 (영상 시킹용 Range 지원)
+│   └── make_og_cover.py           # 링크 공유용 OG 커버 이미지 생성 (Pillow 필요)
 └── docs/
     └── brainstorming.md           # 초기 기획·브레인스토밍 기록
 ```
@@ -122,6 +123,19 @@ python scripts/serve.py
 ### 배포 (GitHub Pages)
 
 별도 빌드 없이 저장소 루트를 그대로 서빙합니다. `main` 브랜치에 push하면 반영됩니다.
+
+### OG 커버 이미지 재생성
+
+카카오톡·X 등에 링크를 공유할 때 뜨는 미리보기 이미지입니다.
+
+```sh
+pip install pillow
+python scripts/make_og_cover.py   # → media/og-cover.png
+```
+
+문구·레이아웃은 `scripts/make_og_cover.py` 상단 상수(`EYEBROW`, `TITLE`)에서 수정합니다.
+이미지를 바꾼 뒤에는 `index.html`의 `og:image` URL 뒤 `?v=` 숫자를 올려야
+이미 캐시된 미리보기가 갱신됩니다.
 
 ### 인용 지표 업데이트
 
