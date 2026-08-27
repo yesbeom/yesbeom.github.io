@@ -1,5 +1,13 @@
 export const publicationData = [
   {
+    title:
+      "Unraveling the Effect of Metal Halide Complex on the Surface Chemistry of InP Quantum Dots",
+    journal: "Chemistry of Materials",
+    url: "https://pubs.acs.org/doi/10.1021/acs.chemmater.6c00599",
+    sortRank: 4,
+    group: "latest",
+  },
+  {
     title: "Overcoming the Luminescence Efficiency Limitations of InP Magic-Sized Clusters",
     journal: "Journal of the American Chemical Society",
     url: "https://pubs.acs.org/doi/full/10.1021/jacs.5c13963",

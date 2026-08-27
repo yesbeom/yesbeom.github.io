@@ -1,23 +1,22 @@
 {
   "source": "Google Scholar",
   "profileUrl": "https://scholar.google.com/citations?hl=en&user=OSOr344AAAAJ",
-  "updatedAt": "2026-07-02",
+  "updatedAt": "2026-08-27",
   "table": {
-    "citations-all": "170",
-    "citations-recent": "169",
+    "citations-all": "174",
+    "citations-recent": "174",
     "h-all": "8",
     "h-recent": "8",
     "i10-all": "7",
     "i10-recent": "7"
   },
   "yearly": [
-    { "year": "2020", "count": 1 },
     { "year": "2021", "count": 16 },
-    { "year": "2022", "count": 17 },
+    { "year": "2022", "count": 18 },
     { "year": "2023", "count": 31 },
-    { "year": "2024", "count": 33 },
-    { "year": "2025", "count": 38 },
-    { "year": "2026", "count": 35 }
+    { "year": "2024", "count": 32 },
+    { "year": "2025", "count": 36 },
+    { "year": "2026", "count": 41 }
   ],
   "note": "Citation metrics are manually updated from Google Scholar."
 }
